@@ -2,7 +2,7 @@
 
 Bem-vindo ao repositório **e-commerce_dev**!
 
-Este projeto é um sistema de e-commerce desenvolvido para demonstrar funcionalidades básicas de uma loja online, incluindo exibição de produtos, carrinho de compras e integração de front-end com back-end.
+Este projeto é um sistema de e-commerce desenvolvido para demonstrar funcionalidades básicas de uma loja online, incluindo exibição de produtos, carrinho de compras e integração de desenvolvimento web e design de interfaces.
 
 ## Estrutura do Projeto
 
