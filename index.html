@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Marca - Skate/Surf/Streetwear</title>
+    <!-- Inclui Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link para o arquivo CSS customizado -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Importa a fonte Inter do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Cabeçalho -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-black nav-link" data-page="home">
+                SUA MARCA
+            </a>
+
+            <!-- Menu de Navegação (Desktop) -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" class="text-gray-600 hover:text-black nav-link active" data-page="home">Home</a>
+                <a href="#" class="text-gray-600 hover:text-black nav-link" data-page="masculino">Masculino</a>
+                <a href="#" class="text-gray-600 hover:text-black nav-link" data-page="feminino">Feminino</a>
+                <a href="#" class="text-gray-600 hover:text-black nav-link" data-page="acessorios">Acessórios</a>
+                <a href="#" class="text-orange-500 hover:text-orange-700 font-semibold nav-link" data-page="promocoes">Promoções</a>
+            </div>
+
+            <!-- Ícones -->
+            <div class="flex space-x-4 items-center">
+                <button id="search-button" class="text-gray-600 hover:text-black focus:outline-none">
+                    <!-- search icon -->
+                    <i class="lucide" aria-hidden="true">&#xea3f;</i>
+                </button>
+                <button id="account-button" class="text-gray-600 hover:text-black focus:outline-none">
+                     <!-- user icon -->
+                    <i class="lucide" aria-hidden="true">&#xeb3a;</i>
+                </button>
+                <button id="cart-button" class="text-gray-600 hover:text-black focus:outline-none relative nav-link" data-page="cart">
+                     <!-- shopping-cart icon -->
+                    <i class="lucide" aria-hidden="true">&#xe91a;</i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                </button>
+                <!-- Botão de Menu Mobile -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-black focus:outline-none">
+                    <!-- menu icon -->
+                    <i class="lucide" aria-hidden="true">&#xea48;</i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menu de Navegação (Mobile) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="#" class="block px-4 py-3 text-gray-600 hover:bg-gray-100 nav-link active" data-page="home">Home</a>
+            <a href="#" class="block px-4 py-3 text-gray-600 hover:bg-gray-100 nav-link" data-page="masculino">Masculino</a>
+            <a href="#" class="block px-4 py-3 text-gray-600 hover:bg-gray-100 nav-link" data-page="feminino">Feminino</a>
+            <a href="#" class="block px-4 py-3 text-gray-600 hover:bg-gray-100 nav-link" data-page="acessorios">Acessórios</a>
+            <a href="#" class="block px-4 py-3 text-orange-500 hover:bg-gray-100 font-semibold nav-link" data-page="promocoes">Promoções</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal (Alterna entre as páginas) -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Página Home -->
+        <section id="page-home" class="page-section active">
+            <!-- Banner Principal -->
+            <div class="bg-gradient-to-r from-blue-400 to-teal-400 text-white p-8 md:p-16 rounded-lg shadow-lg mb-12 text-center">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Coleção Verão 2025</h1>
+                <p class="text-lg md:text-xl mb-6">As melhores peças para curtir a vibe do surf e skate.</p>
+                <button class="btn btn-primary bg-white text-blue-500 hover:bg-gray-100" onclick="navigateTo('masculino')">Ver Coleção</button>
+            </div>
+
+            <!-- Destaques -->
+            <h2 class="text-2xl font-semibold mb-6 text-center">Destaques</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Produto 1 -->
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/300x400/e2e8f0/cbd5e0?text=Camiseta+Skate" alt="Camiseta Skate" class="w-full h-64 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/300x400/cccccc/ffffff?text=Imagem+Indisponível';">
+                    <h3 class="font-semibold text-lg mb-1">Camiseta Logo Skate</h3>
+                    <p class="text-gray-600 mb-2">R$ 89,90</p>
+                    <button class="w-full btn btn-primary" onclick="navigateTo('produto', { id: 1, nome: 'Camiseta Logo Skate', preco: '89,90', img: 'https://placehold.co/600x800/e2e8f0/cbd5e0?text=Camiseta+Skate' })">Ver Produto</button>
+                </div>
+                <!-- Produto 2 -->
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/300x400/fed7d7/feb2b2?text=Bermuda+Surf" alt="Bermuda Surf" class="w-full h-64 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/300x400/cccccc/ffffff?text=Imagem+Indisponível';">
+                    <h3 class="font-semibold text-lg mb-1">Bermuda Água Estampada</h3>
+                    <p class="text-gray-600 mb-2">R$ 129,90</p>
+                    <button class="w-full btn btn-primary" onclick="navigateTo('produto', { id: 2, nome: 'Bermuda Água Estampada', preco: '129,90', img: 'https://placehold.co/600x800/fed7d7/feb2b2?text=Bermuda+Surf' })">Ver Produto</button>
+                </div>
+                <!-- Produto 3 -->
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/300x400/c6f6d5/9ae6b4?text=Moletom+Street" alt="Moletom Street" class="w-full h-64 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/300x400/cccccc/ffffff?text=Imagem+Indisponível';">
+                    <h3 class="font-semibold text-lg mb-1">Moletom Canguru Basic</h3>
+                    <p class="text-gray-600 mb-2">R$ 199,90</p>
+                    <button class="w-full btn btn-primary" onclick="navigateTo('produto', { id: 3, nome: 'Moletom Canguru Basic', preco: '199,90', img: 'https://placehold.co/600x800/c6f6d5/9ae6b4?text=Moletom+Street' })">Ver Produto</button>
+                </div>
+                <!-- Produto 4 -->
+                 <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/300x400/faf089/f6e05e?text=Boné+Trucker" alt="Boné Trucker" class="w-full h-64 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/300x400/cccccc/ffffff?text=Imagem+Indisponível';">
+                    <h3 class="font-semibold text-lg mb-1">Boné Trucker Patch</h3>
+                    <p class="text-gray-600 mb-2">R$ 79,90</p>
+                    <button class="w-full btn btn-primary" onclick="navigateTo('produto', { id: 4, nome: 'Boné Trucker Patch', preco: '79,90', img: 'https://placehold.co/600x800/faf089/f6e05e?text=Boné+Trucker' })">Ver Produto</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Página Categoria Masculino -->
+        <section id="page-masculino" class="page-section">
+            <h1 class="text-3xl font-bold mb-8">Masculino</h1>
+            <!-- Filtros e Ordenação (Placeholder) -->
+            <div class="mb-6 flex justify-between items-center">
+                <span class="text-gray-600">Exibindo 1-12 de 45 produtos</span>
+                <select class="border border-gray-300 rounded-md p-2">
+                    <option>Ordenar por: Relevância</option>
+                    <option>Ordenar por: Menor Preço</option>
+                    <option>Ordenar por: Maior Preço</option>
+                    <option>Ordenar por: Novidades</option>
+                </select>
+            </div>
+            <!-- Grade de Produtos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Produto Exemplo 1 -->
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/300x400/e2e8f0/cbd5e0?text=Camiseta+Masc+1" alt="Camiseta Masculina 1" class="w-full h-64 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/300x400/cccccc/ffffff?text=Imagem+Indisponível';">
+                    <h3 class="font-semibold text-lg mb-1">Camiseta Estampa Costa</h3>
+                    <p class="text-gray-600 mb-2">R$ 99,90</p>
+                    <button class="w-full btn btn-primary" onclick="navigateTo('produto', { id: 5, nome: 'Camiseta Estampa Costa', preco: '99,90', img: 'https://placehold.co/600x800/e2e8f0/cbd5e0?text=Camiseta+Masc+1' })">Ver Produto</button>
+                </div>
+                <!-- Produto Exemplo 2 -->
+                <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/300x400/fed7d7/feb2b2?text=Bermuda+Masc+1" alt="Bermuda Masculina 1" class="w-full h-64 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/300x400/cccccc/ffffff?text=Imagem+Indisponível';">
+                    <h3 class="font-semibold text-lg mb-1">Bermuda Cargo Sarja</h3>
+                    <p class="text-gray-600 mb-2">R$ 149,90</p>
+                     <button class="w-full btn btn-primary" onclick="navigateTo('produto', { id: 6, nome: 'Bermuda Cargo Sarja', preco: '149,90', img: 'https://placehold.co/600x800/fed7d7/feb2b2?text=Bermuda+Masc+1' })">Ver Produto</button>
+                </div>
+                 <!-- Adicione mais produtos aqui -->
+                 <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/300x400/c6f6d5/9ae6b4?text=Regata+Masc" alt="Regata Masculina" class="w-full h-64 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/300x400/cccccc/ffffff?text=Imagem+Indisponível';">
+                    <h3 class="font-semibold text-lg mb-1">Regata Básica Logo</h3>
+                    <p class="text-gray-600 mb-2">R$ 69,90</p>
+                     <button class="w-full btn btn-primary" onclick="navigateTo('produto', { id: 7, nome: 'Regata Básica Logo', preco: '69,90', img: 'https://placehold.co/600x800/c6f6d5/9ae6b4?text=Regata+Masc' })">Ver Produto</button>
+                </div>
+                 <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/300x400/e2e8f0/cbd5e0?text=Camisa+Manga+Longa" alt="Camisa Manga Longa" class="w-full h-64 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/300x400/cccccc/ffffff?text=Imagem+Indisponível';">
+                    <h3 class="font-semibold text-lg mb-1">Camisa Manga Longa UV</h3>
+                    <p class="text-gray-600 mb-2">R$ 119,90</p>
+                     <button class="w-full btn btn-primary" onclick="navigateTo('produto', { id: 8, nome: 'Camisa Manga Longa UV', preco: '119,90', img: 'https://placehold.co/600x800/e2e8f0/cbd5e0?text=Camisa+Manga+Longa' })">Ver Produto</button>
+                </div>
+            </div>
+            <!-- Paginação (Placeholder) -->
+            <div class="mt-8 flex justify-center space-x-2">
+                <button class="px-4 py-2 border rounded-md bg-white text-gray-700 hover:bg-gray-100">Anterior</button>
+                <button class="px-4 py-2 border rounded-md bg-black text-white">1</button>
+                <button class="px-4 py-2 border rounded-md bg-white text-gray-700 hover:bg-gray-100">2</button>
+                <button class="px-4 py-2 border rounded-md bg-white text-gray-700 hover:bg-gray-100">3</button>
+                <button class="px-4 py-2 border rounded-md bg-white text-gray-700 hover:bg-gray-100">Próxima</button>
+            </div>
+        </section>
+
+        <!-- Página de Produto (Exemplo) -->
+        <section id="page-produto" class="page-section">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Imagem do Produto -->
+                <div>
+                    <img id="product-image" src="https://placehold.co/600x800/cccccc/ffffff?text=Produto" alt="Imagem do Produto" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x800/cccccc/ffffff?text=Imagem+Indisponível';">
+                    <!-- Miniaturas (opcional) -->
+                    <div class="flex space-x-2 mt-4">
+                         <img src="https://placehold.co/100x120/cccccc/ffffff?text=Thumb+1" alt="Miniatura 1" class="w-20 h-24 object-cover rounded border border-gray-300 cursor-pointer hover:border-black">
+                         <img src="https://placehold.co/100x120/cccccc/ffffff?text=Thumb+2" alt="Miniatura 2" class="w-20 h-24 object-cover rounded border border-gray-300 cursor-pointer hover:border-black">
+                         <img src="https://placehold.co/100x120/cccccc/ffffff?text=Thumb+3" alt="Miniatura 3" class="w-20 h-24 object-cover rounded border border-gray-300 cursor-pointer hover:border-black">
+                    </div>
+                </div>
+
+                <!-- Detalhes do Produto -->
+                <div>
+                    <h1 id="product-name" class="text-3xl font-bold mb-4">Nome do Produto</h1>
+                    <p id="product-price" class="text-2xl text-gray-800 font-semibold mb-6">R$ 0,00</p>
+
+                    <!-- Opções (Tamanho, Cor) -->
+                    <div class="mb-6">
+                        <label for="tamanho" class="block text-sm font-medium text-gray-700 mb-2">Tamanho:</label>
+                        <div class="flex space-x-2">
+                            <button class="border rounded px-3 py-1 hover:border-black focus:border-black focus:outline-none">P</button>
+                            <button class="border rounded px-3 py-1 hover:border-black focus:border-black focus:outline-none">M</button>
+                            <button class="border rounded px-3 py-1 hover:border-black focus:border-black focus:outline-none">G</button>
+                            <button class="border rounded px-3 py-1 hover:border-black focus:border-black focus:outline-none">GG</button>
+                        </div>
+                    </div>
+                     <div class="mb-6">
+                        <label for="cor" class="block text-sm font-medium text-gray-700 mb-2">Cor:</label>
+                        <div class="flex space-x-2">
+                            <button class="w-8 h-8 rounded-full bg-black border-2 border-gray-300 focus:border-blue-500 focus:outline-none" title="Preto"></button>
+                            <button class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 focus:border-blue-500 focus:outline-none" title="Branco"></button>
+                            <button class="w-8 h-8 rounded-full bg-blue-500 border-2 border-gray-300 focus:border-blue-700 focus:outline-none" title="Azul"></button>
+                        </div>
+                    </div>
+
+                    <!-- Botão Adicionar ao Carrinho -->
+                    <button id="add-to-cart-button" class="w-full btn btn-primary py-3 text-lg mb-4">Adicionar ao Carrinho</button>
+
+                    <!-- Descrição -->
+                    <div class="mt-8 border-t pt-6">
+                        <h3 class="text-lg font-semibold mb-2">Descrição</h3>
+                        <p class="text-gray-600">
+                            Descrição detalhada do produto aqui. Fale sobre o material, o corte, a inspiração da peça, etc.
+                            Ideal para a prática de skate ou surf, ou para compor um look streetwear autêntico.
+                        </p>
+                    </div>
+                     <div class="mt-4 border-t pt-4">
+                        <h3 class="text-lg font-semibold mb-2">Composição</h3>
+                        <p class="text-gray-600">
+                            100% Algodão (Exemplo)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Página do Carrinho -->
+        <section id="page-cart" class="page-section">
+            <h1 class="text-3xl font-bold mb-8">Meu Carrinho</h1>
+            <div id="cart-items-container" class="space-y-6">
+                <!-- Itens do carrinho serão inseridos aqui pelo JS -->
+                 <p id="empty-cart-message" class="text-gray-500 text-center py-8">Seu carrinho está vazio.</p>
+            </div>
+
+            <!-- Resumo do Pedido -->
+            <div id="cart-summary" class="mt-10 pt-6 border-t hidden">
+                <h2 class="text-xl font-semibold mb-4">Resumo do Pedido</h2>
+                <div class="space-y-2 text-gray-700">
+                    <div class="flex justify-between">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Frete:</span>
+                        <span>Grátis (Exemplo)</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-lg text-black">
+                        <span>Total:</span>
+                        <span id="cart-total">R$ 0,00</span>
+                    </div>
+                </div>
+                <button class="w-full btn btn-primary mt-6 py-3 text-lg">Finalizar Compra</button>
+            </div>
+        </section>
+
+        <!-- Outras Páginas (Feminino, Acessórios, Promoções) - Estrutura similar à Masculino -->
+         <section id="page-feminino" class="page-section">
+            <h1 class="text-3xl font-bold mb-8">Feminino</h1>
+            <p class="text-gray-600">Conteúdo da página de produtos femininos aqui...</p>
+            <!-- Adicionar grade de produtos femininos -->
+        </section>
+         <section id="page-acessorios" class="page-section">
+            <h1 class="text-3xl font-bold mb-8">Acessórios</h1>
+            <p class="text-gray-600">Conteúdo da página de acessórios aqui...</p>
+            <!-- Adicionar grade de acessórios -->
+        </section>
+        <section id="page-promocoes" class="page-section">
+            <h1 class="text-3xl font-bold mb-8 text-orange-500">Promoções</h1>
+            <p class="text-gray-600">Conteúdo da página de promoções aqui...</p>
+            <!-- Adicionar grade de produtos em promoção -->
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-800 text-gray-300 mt-16 py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Sobre -->
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Sobre Nós</h4>
+                <p class="text-sm">Sua Marca - Nascida da paixão pelo surf, skate e a cultura de rua. Oferecemos estilo e qualidade para quem vive em movimento.</p>
+            </div>
+            <!-- Links Rápidos -->
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Links Rápidos</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white nav-link" data-page="home">Home</a></li>
+                    <li><a href="#" class="hover:text-white nav-link" data-page="masculino">Masculino</a></li>
+                    <li><a href="#" class="hover:text-white nav-link" data-page="feminino">Feminino</a></li>
+                    <li><a href="#" class="hover:text-white nav-link" data-page="acessorios">Acessórios</a></li>
+                    <li><a href="#" class="hover:text-white nav-link" data-page="promocoes">Promoções</a></li>
+                </ul>
+            </div>
+            <!-- Ajuda -->
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Ajuda</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">FAQ</a></li>
+                    <li><a href="#" class="hover:text-white">Envio e Devoluções</a></li>
+                    <li><a href="#" class="hover:text-white">Política de Privacidade</a></li>
+                    <li><a href="#" class="hover:text-white">Fale Conosco</a></li>
+                </ul>
+            </div>
+            <!-- Newsletter e Social -->
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Newsletter</h4>
+                <p class="text-sm mb-3">Receba novidades e promoções exclusivas.</p>
+                <form class="flex">
+                    <input type="email" placeholder="Seu e-mail" class="flex-grow p-2 rounded-l-md text-gray-800 focus:outline-none">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-r-md">Inscrever</button>
+                </form>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold text-white mb-3">Siga-nos</h4>
+                    <div class="flex space-x-4">
+                        <!-- facebook icon -->
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="lucide" style="font-size: 1.2rem;">&#xea4a;</i></a>
+                         <!-- instagram icon -->
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="lucide" style="font-size: 1.2rem;">&#xea50;</i></a>
+                         <!-- youtube icon -->
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="lucide" style="font-size: 1.2rem;">&#xeae9;</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-700 pt-6">
+            &copy; <span id="current-year"></span> Sua Marca. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Modal de Busca -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('search-modal')">&times;</span>
+            <h2 class="text-xl font-semibold mb-4">Buscar Produtos</h2>
+            <input type="text" placeholder="O que você procura?" class="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button class="btn btn-primary w-full">Buscar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Conta -->
+    <div id="account-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('account-modal')">&times;</span>
+            <h2 class="text-xl font-semibold mb-4">Minha Conta</h2>
+            <form>
+                 <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+                </div>
+                 <div class="mb-6">
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Senha</label>
+                    <input type="password" id="password" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+                </div>
+                <button type="submit" class="btn btn-primary w-full mb-3">Entrar</button>
+                <button type="button" class="btn btn-secondary w-full">Criar Conta</button>
+                 <a href="#" class="block text-center text-sm text-blue-600 hover:underline mt-4">Esqueceu a senha?</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- O 'defer' garante que o js seja executado apenas depois do HTML ser completamente carregado -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+/* Importação da fonte Lucide Icons */
+@font-face {
+    font-family: 'LucideIcons';
+    /* Use o link CDN para a pasta da fonte */
+    src: url(https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf) format('truetype');
+  }
+  
+  /* Classe base para aplicar a fonte Lucide Icons */
+  .lucide {
+    font-family: 'LucideIcons';
+    font-size: 1.5rem; /* Tamanho padrão do ícone */
+    line-height: 1;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    /* Melhor renderização da fonte */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Estilo para o corpo e fonte padrão (Inter) */
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f8f8; /* Fundo cinza claro */
+    color: #333; /* Cor padrão do texto */
+  }
+  
+  /* Estilo para destacar links ativos na navegação */
+  .nav-link.active {
+    font-weight: bold;
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+  
+  /* Estilo base para botões */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem; /* Espaçamento vertical e horizontal */
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    font-weight: 600; /* Semi-negrito */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Transição suave */
+    cursor: pointer;
+  }
+  
+  /* Estilo para botão primário (fundo escuro) */
+  .btn-primary {
+    background-color: #000; /* Fundo preto */
+    color: #fff; /* Texto branco */
+  }
+  
+  .btn-primary:hover {
+    background-color: #333; /* Fundo mais escuro ao passar o mouse */
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.98); /* Efeito de leve encolhimento ao clicar */
+  }
+  
+  /* Estilo para botão secundário (fundo claro com borda) */
+  .btn-secondary {
+    background-color: #eee; /* Fundo cinza claro */
+    color: #333; /* Texto escuro */
+    border: 1px solid #ccc; /* Borda cinza */
+  }
+  
+  .btn-secondary:hover {
+    background-color: #ddd; /* Fundo ligeiramente mais escuro ao passar o mouse */
+  }
+  
+  .btn-secondary:active {
+    transform: scale(0.98); /* Efeito de leve encolhimento ao clicar */
+  }
+  
+  /* Estilo para o modal/popup */
+  .modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fixa no lugar */
+    z-index: 50; /* Fica acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita rolagem, se necessário */
+    background-color: rgba(0,0,0,0.5); /* Fundo preto com opacidade */
+    /* Flexbox para centralizar o conteúdo */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Estilo para o conteúdo do modal */
+  .modal-content {
+    background-color: #fff; /* Fundo branco */
+    margin: auto; /* Centraliza vertical e horizontalmente */
+    padding: 2rem; /* Espaçamento interno */
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    width: 90%; /* Largura responsiva */
+    max-width: 500px; /* Largura máxima */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra sutil */
+    position: relative; /* Necessário para posicionar o botão de fechar */
+  }
+  
+  /* Estilo para o botão de fechar no modal */
+  .close-button {
+    position: absolute;
+    top: 1rem; /* Distância do topo */
+    right: 1rem; /* Distância da direita */
+    font-size: 1.5rem; /* Tamanho do ícone */
+    font-weight: bold;
+    color: #aaa; /* Cor cinza claro */
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: #000; /* Cor mais escura ao passar o mouse */
+  }
+  
+  /* Animação de fade-in para o modal quando a classe 'show' é adicionada */
+  .modal.show {
+    display: flex; /* Altera o display para flex para exibir */
+    animation: fadeIn 0.3s ease-out; /* Aplica a animação de fade-in */
+  }
+  
+  /* Definição da animação fadeIn */
+  @keyframes fadeIn {
+    from { opacity: 0; } /* Começa totalmente transparente */
+    to { opacity: 1; } /* Termina totalmente opaco */
+  }
+  
+  /* Esconde todas as seções de página por padrão */
+  .page-section {
+      display: none;
+  }
+  
+  /* Mostra a seção ativa (quando a classe 'active' é adicionada via JS) */
+  .page-section.active {
+      display: block;
+  }
+  
+  /* Estilos adicionais para a notificação (criada via JS) */
+  .simple-notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+  }
