@@ -1,4 +1,4 @@
-# e-commerce_dev
+# E-commerce Dev
 
 Bem-vindo ao repositório **e-commerce_dev**!
 
